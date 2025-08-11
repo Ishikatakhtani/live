@@ -1,0 +1,244 @@
+{
+  "store": [
+    {
+      "storeId": "STORE12345",
+      "storeName": "TechGear Electronics",
+      "storeDescription": "Your one-stop shop for the latest in tech gadgets and accessories.",
+      "storeAddress": {
+        "street": "123 Main Street",
+        "city": "Techville",
+        "state": "CA",
+        "pinCode": "90001"
+      },
+      "products": [
+        {
+          "productId": "PROD001",
+          "productName": "Smartphone X200",
+          "productProperties": {
+            "brand": "XBrand",
+            "color": "Midnight Black",
+            "storage": "128GB",
+            "screenSize": "6.5 inches"
+          }
+        },
+        {
+          "productId": "PROD002",
+          "productName": "Noise Cancelling Headphones Z500",
+          "productProperties": {
+            "brand": "SoundMax",
+            "color": "Silver",
+            "connectivity": "Bluetooth 5.0",
+            "batteryLife": "30 hours"
+          }
+        },
+        {
+          "productId": "PROD1754303208035",
+          "productName": "ojh",
+          "productProperties": {
+            "category": "lkjh",
+            "price": "3",
+            "discountedPrice": "",
+            "description": "",
+            "sku": "",
+            "quantity": "",
+            "variants": [],
+            "media": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "edd0",
+      "storeName": "TechGear Electronicsjknhbgv",
+      "address": "pojihug",
+      "area": "oi9ou",
+      "landmark": "9876543",
+      "city": "rtfghbjnm",
+      "state": "kjhgf",
+      "pinCode": "987644"
+    },
+    {
+      "id": "dde8",
+      "storeName": "TechGear Electronic",
+      "address": "kjkhb",
+      "area": "kjh",
+      "landmark": "kljkh",
+      "city": "opijhug",
+      "state": "lkljkh",
+      "pinCode": "462001"
+    },
+    {
+      "id": "1b24",
+      "storeId": "STORE1754459714359",
+      "storeName": "kmjnbh",
+      "storeDescription": "jkhbg",
+      "storeAddress": {
+        "street": "mkjn",
+        "area": "lmkjn",
+        "landmark": "kjnbh",
+        "city": 52,
+        "state": 3901,
+        "pinCode": "462001"
+      },
+      "categories": [
+        "Beauty and Personal Care"
+      ],
+      "products": []
+    },
+    {
+      "id": "8d38",
+      "storeName": "TechGear Electronicd",
+      "storeDescription": "jn ",
+      "storeAddress": {
+        "address": "",
+        "area": "",
+        "landmark": "",
+        "pinCode": "462001",
+        "countryId": 1,
+        "stateId": 3901,
+        "cityId": 52
+      },
+      "productCategories": [
+        "Baby"
+      ],
+      "products": [
+        {
+          "productId": "PROD1754463075869",
+          "productName": "kjnhb",
+          "productProperties": {
+            "category": "ijbh",
+            "price": "4",
+            "discountedPrice": "",
+            "description": "",
+            "sku": "",
+            "quantity": "",
+            "variants": [],
+            "media": []
+          }
+        },
+        {
+          "productId": "PROD1754463253527",
+          "productName": "lkj",
+          "productProperties": {
+            "category": "jkbhn",
+            "price": "96",
+            "discountedPrice": "",
+            "description": "",
+            "sku": "",
+            "quantity": "",
+            "variants": [],
+            "media": []
+          }
+        },
+        {
+          "productId": "PROD1754463365472",
+          "productName": "ljh",
+          "productProperties": {
+            "category": "kjn",
+            "price": "875",
+            "discountedPrice": "",
+            "description": "",
+            "sku": "",
+            "quantity": "",
+            "variants": [],
+            "media": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "414f",
+      "storeName": "ishika",
+      "storeDescription": "vcc ",
+      "storeAddress": {
+        "address": "",
+        "area": "",
+        "landmark": "",
+        "pinCode": "462001",
+        "countryId": 1,
+        "stateId": 3901,
+        "cityId": 52
+      },
+      "productCategories": [
+        "Beauty and Personal Care"
+      ],
+      "products": [
+        {
+          "productId": "PROD1754463718059",
+          "productName": "fcd",
+          "productProperties": {
+            "category": "gvf",
+            "price": "52",
+            "discountedPrice": "",
+            "description": "",
+            "sku": "",
+            "quantity": "",
+            "variants": [],
+            "media": []
+          }
+        },
+        {
+          "productId": "PROD1754464255004",
+          "productName": "jn",
+          "productProperties": {
+            "category": "kjn",
+            "price": "85",
+            "discountedPrice": "",
+            "description": "",
+            "sku": "",
+            "quantity": "",
+            "variants": [],
+            "media": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "97ec",
+      "storeName": "sd",
+      "storeDescription": "kjnb",
+      "storeAddress": {
+        "address": "df",
+        "area": "le",
+        "landmark": "ds",
+        "pinCode": "462001",
+        "countryId": 1,
+        "stateId": 3901,
+        "cityId": 52
+      },
+      "productCategories": [
+        "Luggage and Bags"
+      ],
+      "products": [
+        {
+          "productId": "PROD1754464590926",
+          "productName": "kjn",
+          "productProperties": {
+            "category": "jkn",
+            "price": "985",
+            "discountedPrice": "",
+            "description": "",
+            "sku": "",
+            "quantity": "",
+            "variants": [],
+            "media": []
+          }
+        },
+        {
+          "productId": "PROD1754464726138",
+          "productName": "km",
+          "productProperties": {
+            "category": "nnb ",
+            "price": "87",
+            "discountedPrice": "",
+            "description": "",
+            "sku": "",
+            "quantity": "",
+            "variants": [],
+            "media": []
+          }
+        }
+      ]
+    }
+  ]
+}

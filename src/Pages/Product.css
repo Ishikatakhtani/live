@@ -1,0 +1,83 @@
+:root {
+  --primary: #0066ff;
+  --accent: #00c897;
+  --bg: #f5f7fa;
+  --white: #ffffff;
+  --gray: #777;
+  --text-dark: #333;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --font: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/* General Body */
+body {
+   background: url('https://images.unsplash.com/vector-1745253073481-abe115234f49?w=500&auto=format&fit=crop&q=60') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  font-family: var(--font);
+  color: var(--text-dark);
+}
+
+/* Headings */
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Alert / Notification Box */
+.alert {
+  padding: 14px 20px;
+  background-color: #e7f3ff;
+  color: #0c63e4;
+  border: 1px solid #b6dbff;
+  border-radius: var(--radius);
+  font-size: 14px;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow);
+}
+
+.alert::before {
+  content: 'ℹ️';
+  font-size: 16px;
+}
+
+
+.alert.success {
+  background-color: #e6f9ee;
+  color: #1a7f4d;
+  border-color: #b5eac3;
+}
+
+.alert.success::before {
+  content: '✅';
+}
+
+
+.alert.warning {
+  background-color: #fff4e5;
+  color: #b76e00;
+  border-color: #ffd28b;
+}
+
+.alert.warning::before {
+  content: '⚠️';
+}
+
+
+.alert.error {
+  background-color: #fdecea;
+  color: #d93025;
+  border-color: #f5b5af;
+}
+
+.alert.error::before {
+  content: '❌';
+}

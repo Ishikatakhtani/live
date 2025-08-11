@@ -1,0 +1,123 @@
+#div1{
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+#root{
+background-image: url('https://images.pexels.com/photos/7130560/pexels-photo-7130560.jpeg');
+}
+#details{
+  margin-top: 40px;
+  /* background-color: var(--white); */
+  border-radius: var(--radius);
+  padding: 40px 30px;
+  box-shadow: var(--shadow);
+  font-family: var(--font);
+}
+
+#details h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--gray);
+  margin-bottom: 30px;
+}
+
+
+#details1{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group > label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+
+.radio-group label,
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.radio-group label:hover,
+.checkbox-group label:hover {
+  background-color: #eef6ff;
+  border-color: var(--primary);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--primary);
+  margin: 0;
+  transform: scale(1.1);
+}
+
+
+#skip{
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+#skip-btn,
+#finish-btn {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#skip-btn {
+  background-color: #e2e8f0;
+  color: #2d3748;
+}
+
+#skip-btn:hover {
+  background-color: #cbd5e0;
+}
+
+#finish-btn {
+  background-color: var(--primary);
+  color: white;
+}
+
+#finish-btn:hover {
+  background-color: #004dcc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #details1{
+    flex-direction: column;
+  }
+}

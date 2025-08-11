@@ -1,0 +1,108 @@
+:root {
+  --primary: #0066ff;
+  --accent: #00c897;
+  --bg: #f5f7fa;
+  --white: #ffffff;
+  --text-dark: #333;
+  --gray: #777;
+  --radius: 10px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.catalog-container {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+form input[type="text"],
+form input[type="number"] {
+  border-radius: var(--radius);
+  border: 1px solid var(--gray);
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 102, 255, 0.3);
+}
+
+.table {
+  margin-top: 1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table th {
+  background-color: var(--primary);
+  color: var(--white);
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.table img {
+  border-radius: var(--radius);
+  transition: transform 0.3s;
+}
+
+.table img:hover {
+  transform: scale(1.05);
+}
+
+.btn {
+  border-radius: var(--radius);
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #000;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+.btn-outline-secondary,
+.btn-secondary {
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.table tbody tr:hover {
+  background-color: #f0f8ff;
+}
+
+.badge.bg-info {
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: 500;
+}
