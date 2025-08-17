@@ -1,15 +1,40 @@
-// import React from 'react';
-// import { useLocation, useNavigate } from 'react-router-dom';
+// import React, { useEffect, useState } from 'react';
+// import { useLocation, useNavigate, useParams } from 'react-router-dom';
 // import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 // import Nav2 from './Nav2';
 
 // function ProductDetails() {
 //   const navigate = useNavigate();
 //   const location = useLocation();
-//   const { item = {}, storeName = 'Your Store', edit = false } = location.state || {};
+//   //const { name } = useParams(); // get from URL like /productdetails/:name
+//   const { productId } = useParams(); 
+//   const [product, setProduct] = useState(location.state?.item || {});
+//   const storeName = location.state?.storeName || 'Your Store';
+
+//   useEffect(() => {
+//   //   if (!product.name) {
+//   //     // fetch from backend or localStorage
+//   //     fetch(`http://localhost:3000/products?name=${encodeURIComponent(name)}`)
+//   //       .then(res => res.json())
+//   //       .then(data => {
+//   //         if (data.length > 0) {
+//   //           setProduct(data[0]);
+//   //         }
+//   //       })
+//   //       .catch(err => console.error(err));
+//   //   }
+//   // }, [name, product.name]);
+//     // You can fetch from your API here
+//     fetch(`http://localhost:3000/products/${productId}`)
+//       .then(res => res.json())
+//       .then(data => setProduct(data))
+//       .catch(err => console.error(err));
+//   }, [productId]);
 
 //   const handleEdit = () => {
-//     navigate(`/editproduct/${item.name}`, { state: { item, storeName, edit: true } });
+//     navigate(`/editproduct/${product.name}`, {
+//       state: { item: product, storeName, edit: true }
+//     });
 //   };
 
 //   const productFields = {
@@ -35,7 +60,7 @@
 //     duration: 'Duration'
 //   };
 
-//   const displayFields = item.type === 'Service' ? serviceFields : productFields;
+//   const displayFields = product.type === 'Service' ? serviceFields : productFields;
 
 //   return (
 //     <div style={{ display: 'flex' }}>
@@ -45,13 +70,12 @@
 //           <Row className="mb-4">
 //             <Col>
 //               <h2 style={{ fontWeight: '600' }}>
-//                 {storeName} - {item.name || 'Product/Service Details'}
+//                 {storeName} - {product.name || 'Product/Service Details'}
 //               </h2>
 //             </Col>
 //           </Row>
 
 //           <Card className="p-4 shadow-sm border-0 position-relative" style={{ borderRadius: '12px' }}>
-//             {/* Edit Button at Top-Right */}
 //             <Button
 //               variant="primary"
 //               onClick={handleEdit}
@@ -68,8 +92,8 @@
 //             <Row>
 //               <Col md={5} className="d-flex align-items-center justify-content-center">
 //                 <img
-//                   src={item.media?.[0] || 'https://via.placeholder.com/300'}
-//                   alt={item.name || 'No Image'}
+//                   src={product.media?.[0] || 'https://via.placeholder.com/300'}
+//                   alt={product.name || 'No Image'}
 //                   className="img-fluid rounded shadow-sm"
 //                   style={{ maxHeight: '300px', objectFit: 'contain' }}
 //                 />
@@ -79,11 +103,39 @@
 //                   {Object.keys(displayFields).map((key) => (
 //                     <div key={key} style={{ marginBottom: '12px', fontSize: '16px' }}>
 //                       <strong>{displayFields[key]}:</strong>{' '}
-//                       {key === 'variants'
-//                         ? Array.isArray(item[key])
-//                           ? item[key].map(v => `${v.name}: ${v.values.join(', ')}`).join('; ')
-//                           : '-'
-//                         : item[key] || '-'}
+//                       {key === 'variants' ? (
+//                         Array.isArray(product[key]) && product[key].length > 0 ? (
+//                           <div className="mt-2">
+//                             {product[key].map((variant, index) => (
+//                               <div key={index} className="mb-3">
+//                                 <strong>{variant.name}</strong>
+//                                 <table className="table table-bordered table-sm mt-1">
+//                                   <thead>
+//                                     <tr>
+//                                       <th>Value</th>
+//                                       <th>Price (₹)</th>
+//                                       <th>Quantity</th>
+//                                     </tr>
+//                                   </thead>
+//                                   <tbody>
+//                                     {variant.values.map((val, idx) => (
+//                                       <tr key={idx}>
+//                                         <td>{val.value}</td>
+//                                         <td>{val.price || '-'}</td>
+//                                         <td>{val.quantity || '-'}</td>
+//                                       </tr>
+//                                     ))}
+//                                   </tbody>
+//                                 </table>
+//                               </div>
+//                             ))}
+//                           </div>
+//                         ) : (
+//                           '-'
+//                         )
+//                       ) : (
+//                         product[key] || '-'
+//                       )}
 //                     </div>
 //                   ))}
 //                 </div>
@@ -100,18 +152,51 @@
 
 
 
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Container, Row, Col, Button, Card, Spinner } from 'react-bootstrap';
 import Nav2 from './Nav2';
 
 function ProductDetails() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { item = {}, storeName = 'Your Store', edit = false } = location.state || {};
+  const { productId } = useParams();
+
+  // Initial product from location.state for faster render if available
+  const [product, setProduct] = useState(location.state?.item || null);
+  const [loading, setLoading] = useState(!location.state?.item); // load only if no state
+  const [error, setError] = useState(null);
+
+  const storeName = location.state?.storeName || 'Your Store';
+
+  useEffect(() => {
+    // If no product data passed, fetch from API
+    if (!product) {
+     fetch(`http://localhost:3000/store`)
+  .then(res => res.json())
+  .then(stores => {
+    // flatten all products from all stores
+    const allProducts = stores.flatMap(store => store.products || []);
+    const prod = allProducts.find(p => p.productId === productId);
+    if (prod) setProduct({ ...prod.productProperties, name: prod.productName });
+    else setError("Product not found");
+    setLoading(false);
+  })
+  .catch(err => {
+    setError("Failed to fetch product");
+    setLoading(false);
+  });
+    }
+  }, [productId, product]);
 
   const handleEdit = () => {
-    navigate(`/editproduct/${item.name}`, { state: { item, storeName, edit: true } });
+    //navigate(`/editproduct/${product?.name || productId}`, {
+   
+    //state: { item: product, storeName, edit: true }
+    //});
+    navigate(`/editproduct/${product.productId}`, {
+    state: { item: product } // pass entire product object
+  });
   };
 
   const productFields = {
@@ -137,7 +222,40 @@ function ProductDetails() {
     duration: 'Duration'
   };
 
-  const displayFields = item.type === 'Service' ? serviceFields : productFields;
+  if (loading) {
+    return (
+      <div style={{ display: 'flex' }}>
+        <Nav2 />
+        <div style={{ flexGrow: 1, padding: '20px', textAlign: 'center' }}>
+          <Spinner animation="border" /> <p>Loading product details...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div style={{ display: 'flex' }}>
+        <Nav2 />
+        <div style={{ flexGrow: 1, padding: '20px', textAlign: 'center', color: 'red' }}>
+          <p>{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <div style={{ display: 'flex' }}>
+        <Nav2 />
+        <div style={{ flexGrow: 1, padding: '20px', textAlign: 'center' }}>
+          <p>No product details found.</p>
+        </div>
+      </div>
+    );
+  }
+
+  const displayFields = product.type === 'Service' ? serviceFields : productFields;
 
   return (
     <div style={{ display: 'flex' }}>
@@ -147,13 +265,12 @@ function ProductDetails() {
           <Row className="mb-4">
             <Col>
               <h2 style={{ fontWeight: '600' }}>
-                {storeName} - {item.name || 'Product/Service Details'}
+                {storeName} - {product.name || 'Product/Service Details'}
               </h2>
             </Col>
           </Row>
 
           <Card className="p-4 shadow-sm border-0 position-relative" style={{ borderRadius: '12px' }}>
-            {/* Edit Button at Top-Right */}
             <Button
               variant="primary"
               onClick={handleEdit}
@@ -170,8 +287,8 @@ function ProductDetails() {
             <Row>
               <Col md={5} className="d-flex align-items-center justify-content-center">
                 <img
-                  src={item.media?.[0] || 'https://via.placeholder.com/300'}
-                  alt={item.name || 'No Image'}
+                  src={product.media?.[0] || 'https://via.placeholder.com/300'}
+                  alt={product.name || 'No Image'}
                   className="img-fluid rounded shadow-sm"
                   style={{ maxHeight: '300px', objectFit: 'contain' }}
                 />
@@ -182,9 +299,9 @@ function ProductDetails() {
                     <div key={key} style={{ marginBottom: '12px', fontSize: '16px' }}>
                       <strong>{displayFields[key]}:</strong>{' '}
                       {key === 'variants' ? (
-                        Array.isArray(item[key]) && item[key].length > 0 ? (
+                        Array.isArray(product[key]) && product[key].length > 0 ? (
                           <div className="mt-2">
-                            {item[key].map((variant, index) => (
+                            {product[key].map((variant, index) => (
                               <div key={index} className="mb-3">
                                 <strong>{variant.name}</strong>
                                 <table className="table table-bordered table-sm mt-1">
@@ -212,7 +329,7 @@ function ProductDetails() {
                           '-'
                         )
                       ) : (
-                        item[key] || '-'
+                        product[key] || '-'
                       )}
                     </div>
                   ))}

@@ -35,7 +35,7 @@ function App() {
   <Route path="/payments" element={<Payments />} />
     <Route path="/catlog" element={<Catlog />} />
       <Route path="/viewproduct" element={<ViewProducts />} />
-     <Route path="/product-details" element={<ProductDetails />} />
+     <Route path="/product-details/:productId" element={<ProductDetails />} />
    <Route path="/customer-product" element={<CustomerProduct />} />
 <Route path="/editProduct/:name" element={<EditProduct />} />
 

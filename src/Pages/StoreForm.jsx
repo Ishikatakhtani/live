@@ -181,10 +181,10 @@ const checkAvailability = async () => {
         </div>
 
         <div className="right s1left">
-          <h1 id="form-title">Store Address?</h1>
+          <h1 id="form-title">Store Address</h1>
           {/* <p id="form-subtitle">You can update your location anytime.</p> */}
 
-          <label style={{fontWeight:"bold", fontSize:"15px"}}>Store  Address</label>
+          <label style={{fontWeight:"bold", fontSize:"15px"}}>  Address</label>
           <input
             type="text"
             value={address}

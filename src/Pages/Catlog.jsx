@@ -354,7 +354,7 @@ function Catlog() {
           <Row className="mb-2">
             <Col>
               <Button variant="secondary" onClick={handleSelectAll}>Select All</Button>{' '}
-              <Button variant="danger" onClick={handleDeleteSelected}>Delete Selected</Button>
+              {/* <Button variant="danger" onClick={handleDeleteSelected}>Delete Selected</Button> */}
             </Col>
           </Row>
 
@@ -385,6 +385,7 @@ function Catlog() {
                         onChange={() => toggleItem(item.productName)}
                       />
                     </td>
+                    
                     <td>
                       <img
                         src={item.productProperties?.media?.[0] || "https://via.placeholder.com/80"}
@@ -392,13 +393,17 @@ function Catlog() {
                         width="80"
                         height="80"
                         style={{ cursor: 'pointer' }}
-                        onClick={() => navigate('/product-details', { state: { storeName, item } })}
+                       // onClick={() => navigate('/product-details', { state: { storeName, item } })}
+                      onClick={() => navigate(`/product-details/${item.productId}`)}
+
                       />
                     </td>
                     <td
                       style={{ cursor: 'pointer' }}
-                      onClick={() => navigate('/product-details', { state: { storeName, item } })}
-                    >
+                    //  onClick={() => navigate('/product-details', { state: { storeName, item } })}
+                  onClick={() => navigate(`/product-details/${item.productId}`)}
+
+                  >
                       {item.productName}
                     </td>
                     <td>{item.productProperties?.category}</td>
@@ -408,6 +413,14 @@ function Catlog() {
               )}
             </tbody>
           </Table>
+           <Row className="mb-3">
+            <Col className="d-flex justify-content-end">
+             
+              <Button variant="danger" onClick={handleDeleteSelected}>
+                Delete Selected
+              </Button>
+            </Col>
+          </Row>
         </Container>
       </div>
     </div>

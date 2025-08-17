@@ -1,0 +1,40 @@
+{
+  "addProducts": [
+    {
+      "productId": "PROD001",
+      "productName": "Converse Chuck Taylor All Star",
+      "category": "Shoes",
+      "price": 2999,
+      "description": "Classic white high-top sneakers.",
+      "inventory": 100,
+      "variants": [
+        { "size": "UK 7", "color": "White" },
+        { "size": "UK 8", "color": "White" }
+      ],
+      "media": [
+        "https://example.com/images/product1-front.jpg",
+        "https://example.com/images/product1-side.jpg"
+      ]
+    }
+  ],
+  "editProducts": [
+    {
+      "productId": "PROD001",
+      "productName": "Converse Chuck Taylor All Star (Updated)",
+      "category": "Shoes",
+      "price": 2799,
+      "description": "Classic white high-top sneakers with updated design.",
+      "inventory": 90,
+      "variants": [
+        { "size": "UK 7", "color": "White" },
+        { "size": "UK 8", "color": "White" },
+        { "size": "UK 9", "color": "Black" }
+      ],
+      "media": [
+        "https://example.com/images/product1-front.jpg",
+        "https://example.com/images/product1-side.jpg",
+        "https://example.com/images/product1-updated.jpg"
+      ]
+    }
+  ]
+}
