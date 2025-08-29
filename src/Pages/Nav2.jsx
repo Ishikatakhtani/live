@@ -38,10 +38,10 @@ const Nav2 = () => {
           Add Products
         </span>
          <span
-          className={currentPath === '/add-service' ? 'active' : ''}
-          onClick={() => navigate('/add-service', { state: { storeName } })}
+          className={currentPath === '/orders' ? 'active' : ''}
+          onClick={() => navigate('/orders', { state: { storeName } })}
         >
-          Add services
+          Orders
         </span>
         <span
           className={currentPath === '/viewproduct' ? 'active' : ''}

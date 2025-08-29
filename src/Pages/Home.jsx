@@ -282,9 +282,9 @@ function Home() {
           <span className="active">Home</span>
           <span onClick={() => navigate('/catlog', { state: { storeName } })}>Catalog</span>
           <span onClick={() => navigate("/add-product", { state: { storeName } })}>Add Products</span>
-          <span>Orders</span>
-          <span>Analytics</span>
-          <span>Reviews</span>
+          <span onClick={() => navigate("/orders", { state: { storeName } })}>Orders</span>
+          <span onClick={() => navigate("/viewproduct", { state: { storeName } })}>View Products</span>
+         
           <hr />
         </nav>
       </aside>
@@ -393,12 +393,16 @@ function Home() {
                             width="80"
                             height="80"
                             style={{ cursor: 'pointer' }}
-                            onClick={() => navigate('/product-details', { state: { storeName, item } })}
+                          //  onClick={() => navigate('/product-details', { state: { storeName, item } })}
+                          onClick={() => navigate(`/product-details/${item.productId}`)}
+
                           />
                         </td>
                         <td
                           style={{ cursor: 'pointer' }}
-                          onClick={() => navigate('/product-details', { state: { storeName, item } })}
+                          //onClick={() => navigate('/product-details', { state: { storeName, item } })}
+                        onClick={() => navigate(`/product-details/${item.productId}`)}
+
                         >
                           {item.productName}
                         </td>

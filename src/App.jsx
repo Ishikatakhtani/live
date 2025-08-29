@@ -16,6 +16,8 @@ import EditProduct from './Pages/EditProduct';
 import ServiceForm from './Pages/ServiceForm';
 import ViewProducts from './Pages/ViewProducts';
 import CustomerProduct from './Pages/CustomerProduct';
+import Cart from './Pages/Cart';
+import Orders from './Pages/Order';
 
 
 
@@ -38,8 +40,8 @@ function App() {
      <Route path="/product-details/:productId" element={<ProductDetails />} />
    <Route path="/customer-product" element={<CustomerProduct />} />
 <Route path="/editProduct/:name" element={<EditProduct />} />
-
-
+<Route path="/cart" element={<Cart/>} />
+<Route path="/orders" element={<Orders/>} />
         </Route>
       </Routes>
     </Router>
